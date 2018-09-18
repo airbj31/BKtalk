@@ -14,6 +14,9 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+  library("devtools")
+  library("Biobase")
+  library(UsingR)
 ```
 
 ## Seminar : AI/ML on Healthcare services 
@@ -132,7 +135,7 @@ ref :
 
 ## Missing Heritability
 
-$$ Missig h^2 = \hat{h}^{2}_{pedigree} - \hat{h}^{2}_{stat}$$
+$$ Missig\;h^2 = \hat{h}^{2}_{pedigree} - \hat{h}^{2}_{stat}$$
 
 ## current project
 
@@ -287,6 +290,46 @@ $$ Missig h^2 = \hat{h}^{2}_{pedigree} - \hat{h}^{2}_{stat}$$
 - Sample Size Matters
 
 - 
+
+## Height Prediction
+
+
+$$ H_{child_{girl}} = \frac{H_{father} + H_{mother} - 5\;inch}{2}$$
+$$ H_{child_{boy}} = \frac{H_{father} + H_{mother} + 5\;inch}{2}$$
+
+$$ H(child) = a \times H(mid_parents) + b \times Sex(child) + c $$
+
+$$ \theta \cup \cap $$
+
+* Francis Galton's way
+
+```{r, echo=F,eval=F}
+require(psych)
+## galton's data
+data("GaltonFamilies")
+
+GaltonFamilies<-GaltonFamilies %>% mutate(adj_childhight_pred=(father+mother + ifelse(gender=="male",5,-5))/2)
+
+GaltonFamilies<-GaltonFamilies %>% mutate(sexcode=ifelse(gender=="male",1,2))
+lmh<-lm(GaltonFamilies$childHeight ~ GaltonFamilies$midparentHeight + GaltonFamilies$sexcode)
+
+df<-lmh$model
+colnames(df)<-c("childheight","midparentheight","sex")
+df$sex<-as.factor(df$sex)
+levels(df$sex)<-c("male","female")
+
+ggplot(df[df],aes(x=midparentheight,y=childheight,color=sex)) + geom_point(shape=21)+stat_smooth(method="lm",col="red") + theme_bw() + xlab("midpoint_parentHeight") + ylab("Child's height")
+summary(lmh)
+
+
+lmH <- lm(galton$child ~ galton$parent)
+summary(lmH)
+ggplot(galton,aes(parent,child))+geom_point() + geom_abline(intercept=23.9415, slope=06463)
+
+
+```
+
+* GWAS 
 
 
 # References
