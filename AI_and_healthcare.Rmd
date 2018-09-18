@@ -1,66 +1,106 @@
 ---
-title: "AI_and_Heathcare.Rmd"
-author: "BJK"
+title: "AI/ML and Heathcare"
+author: "Byungju Kim"
 date: "2018-09-14"
 output: 
-  html_document: 
-    toc: yes
+  ioslides_presentation: 
+    nature:
+      highlightStyle: github
+      highlightLines: true
+    css: talk.css
+#  html_document: 
+#    toc: yes
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Seminar : AI/ML on Healthcare services.
+## Seminar : AI/ML on Healthcare services 
 
-| <span> | |                                                      
+| | |                                                      
 | --------- | -------------------------------------------------------------------- |
-| Date      |: 2018-10-26 19:00-21:00                                               |
-| Location  |: 4th floor, WeWork Seoulsquare, <br /> &nbsp; 416 Hangang-Daero Jung-gu Seoul 04637 |
-| Audience  |: anyone who interests ML on healthcares                               |
-|           |                                                                      |
+| __Date__  |: 2018-10-26 19:00-21:00                                               |
+| __Location__  |: 4th floor, WeWork Seoulsquare, <br /> &nbsp; 416 Hangang-Daero Jung-gu Seoul 04637 |
+| __Audience__  |: anyone who interests ML on healthcares                               |
 
-## Session info
+
+## Session info 
 
 * **Part 1 :** [introduction](#Session1introduction)
 
-* **Part 2 :** []
+* **Part 2 :** [AI/ML_on_Genomics](#Session2)
 
-# Session 1 : introduction
-
-### Who am I ? and who are my groups ?
+## Today's speaker
+<hr>
 
 <table>
-<tr>
-  <td cellspacing=5px width=50%> <img src="./image/bjk.png" align="left"> &nbsp; <b>Byungju Kim</b> <br /> 
-       &nbsp; Not an <b>AI/ML</b> expert <br /> 
-       &nbsp; <b>Bioscience/Genomics researcher</b> using AI/ML.
-  </td >
-  <td cellspacing=5px width=50%> <img src="./image/EDGC_LOGO_EN.png" align="left"> &nbsp; <b> EDGC</b> (E-one diagnostics Genome Center)
-  </td>
+<tr cellspacing=10px>
+  <td cellspacing=5px width=20%> <img src="./image/bjk.png" align="left",width=100%></td>
+  <td> <b>Byungju Kim </b>   
+       <li> `Not an AI/ML expert`</li><li> but `Bioscience/Genomics researcher` using AI/ML.</li><li> Ph.D. @ Yonsei</li><li> Researcher @ UC berkeley</li>
+       </td >
 </tr>
 </table>
 
-## Era of Big data : Personalized/Precision medicine 
+<hr>
 
-- Amount of DATA.
+<table>
+<tr>
+  <td cellspacing=5px width=50%> <img src="./image/EDGC_LOGO_EN.png" align="left"> &nbsp; </td>
+  <td><b> EDGC</b> (E-one diagnostics Genome Center)</td>
+</tr>
+</table>
 
-- 
+<hr>
 
+<table>
+<tr>
+  <td cellspacing=5px width=50%> <img src="./image/INU.gif" align="left"> &nbsp; </td>
+  <td><b> Incheon University</b></td>
+</tr>
+</table>
+<hr>
+
+# Session 1 : introduction | Precision/Personalized medicine and human genome {.build}
+
+
+## Precision/Personalized medicine {.build}
+
+* This is **not a new concept**
+
+![](./image/PreMed.jpg)
+
+* Identify the best approaches will be effective for which patients based on genetic, environmental, and lifestyle factors
+
+## Precision/Personalized medicine 
+
+![](./image/WilliamOsler.jpg)
 many ... many ... too ... many missing values 
 
 
-## 
+## Triad of the disease
 
-- Phenotyping (make good labels)
+**Host factors**
 
+- `inherited genome`
+
+**Environmental facotrs**
+
+- Virulence factors
+-
+
+**Life-style factors**
+
+-
 - 
 
+## my point of view : Meaning of the First Human Genome sequenced, 
 
 
+* it's just an announcement of new start.
 
-
-
+* "getting information" -> "Understanding the information" -> 
 
 
 ## History of Human genome
@@ -74,12 +114,21 @@ ref :
 ## current knowledge about human genome
 
 * Hapmap & g1k population.
+
+```{r}
+
+
+
+```
+
 * 80 % variations are single nucleotide variation.
 * 
 
-## current knowledge about human genome and Traits.
+## Current knowledge about human genome and Traits.
 
 * GWAS catalog ????
+
+
 
 ## Missing Heritability
 
@@ -89,12 +138,9 @@ $$ Missig h^2 = \hat{h}^{2}_{pedigree} - \hat{h}^{2}_{stat}$$
 
 - Colon cancer susceptibility 
 
-
 ## Current limitation :
 
 - role of `common` variation in ~~~.
--
--
 
 ## Genomic signals we have.
 
@@ -105,7 +151,6 @@ $$ Missig h^2 = \hat{h}^{2}_{pedigree} - \hat{h}^{2}_{stat}$$
 - Clustering of ~~
 
 **t-SNE clustering of the population**
-- 
 
 **k-Nearleast neighbor method on Chromosome 22.**
 - 97% accurately predict superpopulation
@@ -116,16 +161,67 @@ $$ Missig h^2 = \hat{h}^{2}_{pedigree} - \hat{h}^{2}_{stat}$$
 
 - Body mass index (Weight)
 
-## DATA science.
+## EDGC Service 
+
+- NICE
+
+* Predict fetal genomic defects from fetal fraction.
+
+# Session 1 : ML and human genomics
+
+## What's the Machine Learning ?
+
+**Arthur Samuel (1901-1990)**
+
+>> Giva a computer the ability to learn without beign explicitly programmed.
+
+**Tom Mitchel (1951 - present )**
+
+>>  A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E. 
+
+
+
+
+* 
+
+
+## Kind of ML
+
+- Supervised Learning
+
+- unsupervised Learning
+
+## k-Nearleast Neighbor | example
+
+## Support Vector Machine | example
+
+## Decision Tree | example
+
+## Random-Forest | example
+
+## Ensemble | example
+
+## Neural-Network | example
+
+**colon cancer**
+
+
+
+
+
+
+- 97% accurately prediction of ~~~.
+
+-
+
+## 
+
+## Genomic science as DATA science/Big Data
 
 - The Era of Big data.
 
-- Traditional ~~~ does not account for the ~~~.
 
-- Height; 
-
-
-## DATA level
+## DATA Level/Layer
 
 * Central Dogma and
 
@@ -135,40 +231,39 @@ $$ Missig h^2 = \hat{h}^{2}_{pedigree} - \hat{h}^{2}_{stat}$$
 
 *
 
-# GWAS
+
 
 * Gene-set enrichment assay.
 
 
-## EDGC Service 
-
-- NICE
-
-* Predict fetal genomic defects from fetal fraction.
 
 
-# Session 2 : my project and ~~~.
+# Session 2 : my Experiences
 
 
-## Disease Prediction
+**Disease Prediction**
 
-**Cancer**
+* prediction of cancer, ND, SLE, Asthma susceptibility
 
-**SLE**
+* Korean Colon Cancer susceptibility and diagnosis**
 
-**Asthma**
+**Pharmacogenomics | prediction of drug adverse effect**
 
-**Korean Colon Cancer**
-
-## Pharmacogenomics
+* 
 
 
 
-## k-NN or TCGA samples
+## Cancer susceptibility Prediction
+
+- TCGA samples
+
+- published this year (pnas)
+
+- We could predict ~~~,~~~,~~~.
 
 ## Drug Adverse Effects (ongoing)
 
-- **HIV** drug : navapine.
+- **HIV** drug : Nevirapine (commercial name : Viramune)
 - supportvector machine on SNPs.
 - 85% of adverse effect generated by ~~~ is detected by the algorithm.
 
@@ -180,6 +275,18 @@ $$ Missig h^2 = \hat{h}^{2}_{pedigree} - \hat{h}^{2}_{stat}$$
 * current ~~ is based on the ~~~, not molecular level.
 
 (e.g)
+
+## Term Standardization
+
+**gdist**
+
+## Problems
+
+- Phenotyping
+
+- Sample Size Matters
+
+- 
 
 
 # References
